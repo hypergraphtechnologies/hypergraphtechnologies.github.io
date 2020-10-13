@@ -16,22 +16,22 @@ var app = new Vue({
       // handle signup
     },
     slideClickHandler(e) {
-      this.slideToNext();
+      this.slideToSection(1);
     },
     slideWheelHandler(e) {
       if (e.wheelDelta > 0 || e.detail < 0) {
       } else {
         e.preventDefault();
-        this.slideToNext();
+        this.slideToSection(1);
       }
     },
-    slideToNext() {
+    slideToSection(index) {
       $("body,html")
         .stop()
         .animate(
           // Slide to next section
           {
-            scrollTop: $(window).innerHeight(),
+            scrollTop: $("section").eq(index).offset().top,
           },
           1500
         );

@@ -24,7 +24,7 @@ header .header-wrapper { display: -webkit-box; display: -ms-flexbox; display: fl
 
 .intro #scroll { position: absolute; bottom: 20px; left: 0; right: 0; margin: auto; text-align: center; }
 
-.intro #scroll span { display: block; margin-bottom: 15px; text-align: center; font: 600 20px/31px Titillium Web; letter-spacing: 4.2px; color: #bc9ce5; }
+.intro #scroll span { display: block; margin-bottom: 15px; text-align: center; font: 600 20px/31px "Titillium Web"; letter-spacing: 4.2px; color: #bc9ce5; }
 
 .intro #scroll svg { -webkit-animation: 2s bounce 2s infinite forwards; animation: 2s bounce 2s infinite forwards; }
 
@@ -40,7 +40,7 @@ header .header-wrapper { display: -webkit-box; display: -ms-flexbox; display: fl
 
 .btn-submit:hover { background: #333; }
 
-.main { padding-top: 200px; height: 100vh; }
+.main { padding-top: 110px; height: 100vh; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: start; -ms-flex-pack: start; justify-content: flex-start; -webkit-box-align: center; -ms-flex-align: center; align-items: center; }
 
 .main .container { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: start; -ms-flex-pack: start; justify-content: flex-start; }
 
@@ -50,8 +50,105 @@ header .header-wrapper { display: -webkit-box; display: -ms-flexbox; display: fl
 
 .main h3 { text-align: left; font: 300 25px/51px "Titillium Web"; letter-spacing: 0.75px; margin-top: 0; margin-bottom: 75px; }
 
-.main .signup-form { background: #ffffff; -webkit-box-shadow: 0px 0px 40px #0000001a; box-shadow: 0px 0px 40px #0000001a; border-radius: 4px; opacity: 1; padding: 30px; }
+.main .signup-form { background: #ffffff; -webkit-box-shadow: 0 0 40px #0000001a; box-shadow: 0 0 40px #0000001a; border-radius: 4px; opacity: 1; padding: 30px; }
 
 .main .signup-form form { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-align: end; -ms-flex-align: end; align-items: flex-end; }
 
-.main .signup-form input { height: 50px; margin-right: 50px; -webkit-appearance: none; border: none; border-bottom: 3px solid #e0d1f3; -webkit-box-flex: 1; -ms-flex: auto; flex: auto; outline: 0; font: 200 22px/34px Titillium Web; letter-spacing: 0.66px; color: #000; }
+.main .signup-form input { height: 50px; margin-right: 50px; -webkit-appearance: none; border: none; border-bottom: 3px solid #e0d1f3; -webkit-box-flex: 1; -ms-flex: auto; flex: auto; outline: 0; font: 200 22px/34px "Titillium Web"; letter-spacing: 0.66px; color: #000; }
+
+.about { padding-top: 180px; padding-bottom: 150px; background: #f5f5f5; }
+
+.about .row { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; -webkit-box-align: center; -ms-flex-align: center; align-items: center; margin-bottom: 100px; }
+
+.about .row:last-child { margin-bottom: 0; }
+
+.about .row h3 { text-align: left; font: 200 65px/75px "Titillium Web"; letter-spacing: 0; color: #000000; opacity: 1; margin: 0; }
+
+.about .row p { text-align: left; font: 300 28px/40px "Titillium Web"; letter-spacing: 0.84px; color: #000000; opacity: 1; margin-top: 15px; margin-bottom: 0; }
+
+.about .row li::marker { font-size: 28px; }
+
+.about .row > div:nth-child(1) { -webkit-box-flex: 0; -ms-flex: 0 1 42%; flex: 0 1 42%; }
+
+.about .row > div:nth-child(2) { -webkit-box-flex: 0; -ms-flex: 0 1 50%; flex: 0 1 50%; }
+
+.about .row.row2 { -webkit-box-orient: horizontal; -webkit-box-direction: reverse; -ms-flex-direction: row-reverse; flex-direction: row-reverse; }
+
+.about .row.row2 > div:nth-child(1) { -webkit-box-flex: 0; -ms-flex: 0 1 46%; flex: 0 1 46%; }
+
+.about .row.row2 > div:nth-child(2) img { width: 100%; display: block; -webkit-box-shadow: 0 47px 55px #0000002e; box-shadow: 0 47px 55px #0000002e; border-radius: 8px; }
+
+.sec-title, .how-it-works h2, .signup h2 { text-align: center; font: 600 75px/90px "Titillium Web"; letter-spacing: 0; opacity: 1; margin-top: 0; }
+
+.how-it-works { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-align: center; -ms-flex-align: center; align-items: center; height: 100vh; }
+
+.how-it-works h2 { color: #000000; margin-bottom: 100px; }
+
+.how-it-works .items-container { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: start; -ms-flex-pack: start; justify-content: flex-start; }
+
+.how-it-works .items-container .item { -webkit-box-flex: 0; -ms-flex: 0 1 33.33%; flex: 0 1 33.33%; padding: 0 45px; text-align: center; }
+
+.how-it-works .items-container .item .item-img { height: 100px; }
+
+.how-it-works .items-container .item .item-img img { height: 100%; width: auto; }
+
+.how-it-works .items-container .item h3 { text-align: center; font: 300 40px/75px "Titillium Web"; letter-spacing: 0; color: #000000; opacity: 0.7; margin-top: 20px; margin-bottom: 0; }
+
+.how-it-works .items-container .item p { text-align: center; font: 300 24px/36px "Titillium Web"; letter-spacing: 0; color: #000000; opacity: 0.7; }
+
+.signup { padding-top: 100px; padding-bottom: 100px; color: #fff; background: #494949; text-align: center; }
+
+.signup h2 { margin-bottom: 50px; }
+
+.signup h3 { text-align: center; font: 300 25px/51px "Titillium Web"; letter-spacing: 0.75px; color: #ffffff; opacity: 1; margin-top: 0; margin-bottom: 20px; }
+
+.signup .signup-form { opacity: 1; padding: 30px; }
+
+.signup .signup-form form { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -webkit-box-pack: start; -ms-flex-pack: start; justify-content: flex-start; }
+
+.signup .signup-form input { height: 70px; -webkit-appearance: none; border: none; border-bottom: 3px solid rgba(255, 255, 255, 0.18); -webkit-box-flex: 1; -ms-flex: auto; flex: auto; outline: 0; font: 200 22px/34px Titillium Web; letter-spacing: 0.66px; color: #fff; background: transparent; min-width: 500px; text-align: center; margin-bottom: 40px; }
+
+.signup .signup-form input::-webkit-input-placeholder { color: #fff; }
+
+.signup .signup-form input:-ms-input-placeholder { color: #fff; }
+
+.signup .signup-form input::-ms-input-placeholder { color: #fff; }
+
+.signup .signup-form input::placeholder { color: #fff; }
+
+footer { background: #414141; padding: 50px 0; text-align: center; font: 300 18px/42px "Titillium Web"; letter-spacing: 0.54px; color: #ffffff; opacity: 1; }
+
+footer p { margin: 0; }
+
+footer a:hover { text-decoration: underline; }
+
+@media (min-width: 1024px) and (max-width: 1919px) { .container { padding-left: 0.78vw; padding-right: 0.78vw; max-width: 83.33vw; }
+  header { border-bottom: 0.05vw solid #cecece; height: 5.73vw; }
+  .intro h1 { font: 600 3.65vw/5.52vw "Titillium Web"; margin-bottom: 0.52vw; }
+  .intro .tw p { font: 300 1.56vw/2.4vw "Titillium Web"; letter-spacing: 0.09vw; }
+  .intro #scroll { bottom: 1.04vw; }
+  .intro #scroll span { margin-bottom: 0.78vw; font: 600 1.04vw/1.61vw T "itillium Web"; letter-spacing: 0.22vw; }
+  .btn-submit { padding: 1.04vw 1.56vw; border-radius: 0.42vw; font: 400 0.83vw/1.25vw "Titillium Web"; letter-spacing: 0.08vw; }
+  .main { padding-top: 5.73vw; }
+  .main h2 { font: 600 3.91vw/4.69vw "Titillium Web"; margin-bottom: 2.6vw; }
+  .main h3 { font: 300 1.3vw/2.66vw "Titillium Web"; letter-spacing: 0.04vw; margin-bottom: 3.91vw; }
+  .main .signup-form { -webkit-box-shadow: 0 0 2.08vw #0000001a; box-shadow: 0 0 2.08vw #0000001a; border-radius: 0.21vw; padding: 1.56vw; }
+  .main .signup-form input { height: 2.6vw; margin-right: 2.6vw; border-bottom: 0.16vw solid #e0d1f3; font: 200 1.15vw/1.77vw "Titillium Web"; letter-spacing: 0.03vw; }
+  .about { padding-top: 9.38vw; padding-bottom: 7.81vw; }
+  .about .row { margin-bottom: 5.21vw; }
+  .about .row h3 { font: 200 3.39vw/3.91vw "Titillium Web"; }
+  .about .row p { font: 300 1.46vw/2.08vw "Titillium Web"; letter-spacing: 0.04vw; margin-top: 0.78vw; }
+  .about .row li::marker { font-size: 1.46vw; }
+  .about .row.row2 > div:nth-child(2) img { -webkit-box-shadow: 0 2.45vw 2.86vw #0000002e; box-shadow: 0 2.45vw 2.86vw #0000002e; border-radius: 0.42vw; }
+  .sec-title, .how-it-works h2, .signup h2 { font: 600 3.91vw/4.69vw "Titillium Web"; }
+  .how-it-works h2 { margin-bottom: 5.21vw; }
+  .how-it-works .items-container .item { padding: 0 2.34vw; }
+  .how-it-works .items-container .item .item-img { height: 5.21vw; }
+  .how-it-works .items-container .item h3 { font: 300 2.08vw/3.91vw "Titillium Web"; margin-top: 1.04vw; }
+  .how-it-works .items-container .item p { font: 300 1.25vw/1.88vw "Titillium Web"; }
+  .signup { padding-top: 5.21vw; padding-bottom: 5.21vw; }
+  .signup h2 { margin-bottom: 2.6vw; }
+  .signup h3 { font: 300 1.3vw/2.66vw "Titillium Web"; letter-spacing: 0.04vw; margin-bottom: 1.04vw; }
+  .signup .signup-form { padding: 1.56vw; }
+  .signup .signup-form input { height: 3.65vw; border-bottom: 0.16vw solid rgba(255, 255, 255, 0.18); font: 200 1.15vw/1.77vw "Titillium Web"; letter-spacing: 0.03vw; min-width: 26.04vw; margin-bottom: 2.08vw; }
+  footer { padding: 2.6vw 0; font: 300 0.94vw/2.19vw "Titillium Web"; letter-spacing: 0.03vw; } }

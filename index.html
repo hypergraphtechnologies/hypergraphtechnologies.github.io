@@ -13,9 +13,7 @@
   <body>
     <div id="app">
       <header>
-        <div class="header-wrapper">
-          <span>this is header</span>
-        </div>
+        <div class="header-wrapper"></div>
       </header>
       <section class="intro" @wheel="slideWheelHandler">
         <div class="container">
@@ -66,6 +64,152 @@
           </div>
         </div>
       </section>
+      <section class="about">
+        <div class="container">
+          <div class="row row1">
+            <div>
+              <h3>Your Data is scattered & not easily accessible</h3>
+            </div>
+            <div>
+              <p>
+                Accessible via a beautiful graphical user interface, Hypergraph
+                easily integrates both real time & static data.
+              </p>
+              <p>
+                Hypergraph ingests data from Graph, Relational, Search, Blob &
+                Columnar database types via a unified API.
+              </p>
+              <p>
+                Allowing for multi type data stores to be queried, using natural
+                language, for the very first time.
+              </p>
+            </div>
+          </div>
+          <div class="row row2">
+            <div>
+              <h3>Take knowledge to<br />the next level</h3>
+
+              <p>Data is siloed across services in different formats.</p>
+              <p>
+                With a wide range of integrations, Hypergraph exposes & connects
+                multiple types of data. Each type is stored as a collection of
+                data objects and is callable by a unified API.
+              </p>
+              <p>
+                For the first time, using Natural Language questions- different
+                types of data & data stores become easily queryable. Hypergraph
+                is Google™ for your personal data.
+              </p>
+            </div>
+            <div>
+              <img src="assets/img/terminal.png" alt="" />
+            </div>
+          </div>
+          <div class="row row3">
+            <div>
+              <h3>The Hyperlink Platform</h3>
+            </div>
+            <div>
+              <ul>
+                <li><p>Modular Knowledge Management Platform for data.</p></li>
+                <li>
+                  <p>
+                    On-premise, Cloud API, or Web-based NLP Data Search &
+                    Analytics Platform.
+                  </p>
+                </li>
+                <li>
+                  <p>Connect to your databases or data warehouses.</p>
+                </li>
+                <li>
+                  <p>Deployable in private, public, and hybrid clouds.</p>
+                </li>
+                <li>
+                  <p>
+                    Search & Analyze with feature-rich natural language
+                    processing
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="how-it-works">
+        <div class="container">
+          <h2 class="sect-title">Hypergraph Your Way</h2>
+          <div class="items-container">
+            <div class="item">
+              <div>
+                <div class="item-img">
+                  <img src="assets/img/001-api.svg" alt="" />
+                </div>
+                <h3>Developer API</h3>
+                <p>
+                  Want to use Hypergraph to do something else? Read our API
+                  documentation to unlock Ai superpowers.
+                </p>
+              </div>
+            </div>
+            <div class="item">
+              <div>
+                <div class="item-img">
+                  <img src="assets/img/002-handshake.svg" alt="" />
+                </div>
+                <h3>PRO</h3>
+                <p>
+                  Hypergraph Pro is the enterprise edition of our software.
+                  Reach out via email to learn about extensive additional
+                  features available to Enterprise customers.
+                </p>
+              </div>
+            </div>
+            <div class="item">
+              <div>
+                <div class="item-img">
+                  <img src="assets/img/003-secure.svg" alt="" />
+                </div>
+                <h3>Safe & Secure</h3>
+                <p>
+                  Hypergraph utilises the latest end-to-end transport layer
+                  security to ensure that your data, remains safe whilst in
+                  transit. Once on our servers the data remains encrypted. Only
+                  you possess the key to unlock it.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="signup">
+        <div class="container">
+          <h2>Access your knowledge today</h2>
+          <h3>
+            Use Hypergraph to capture & search your knowledge.<br />Sign up for
+            a free demo account below
+          </h3>
+          <div class="signup-form">
+            <form>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                placeholder="Enter your email & Get Hypergraph for free"
+              />
+              <button @click.prevent="submitSignUp" class="btn-submit">
+                create an account
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+      <footer>
+        <div class="container">
+          <p>Hypergraph Technologies Pty Ltd 2020 All Rights Reserved</p>
+          <p>4/23 O'Connell St, Sydney NSW 2000</p>
+          <a href="#"> Terms & Conditions</a> | <a href="#">Privacy Policy</a>
+        </div>
+      </footer>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
