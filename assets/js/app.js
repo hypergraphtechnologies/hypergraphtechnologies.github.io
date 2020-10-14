@@ -9,7 +9,7 @@ var app = new Vue({
     formDirty: false,
     searching: false,
     loading: false,
-    suggestions: [],
+    // suggestions: [],
     strings: [
       "is Google™ for your personal data.",
       "is your Enterprise Knowledge Management Tool",
@@ -17,10 +17,33 @@ var app = new Vue({
       "weaves your data Fabric layer.",
       "your Feature Store search engine.",
     ],
+    dummyResponse: [
+      {
+        title: "Bla bla bla 1",
+        url: "https://google.com/1",
+      },
+      {
+        title: "Bla bla bla 2",
+        url: "https://google.com/2",
+      },
+      {
+        title: "Bla bla bla 3",
+        url: "https://google.com/3",
+      },
+      {
+        title: "Bla bla bla 4",
+        url: "https://google.com/4",
+      },
+      {
+        title: "Bla bla bla 5",
+        url: "https://google.com/5",
+      },
+    ],
   },
   methods: {
     /* Main function : Trigger search and show results */
     searchChangeHandler() {
+      console.log("search function triggered!");
       if (this.keyword && this.keyword.length > 2) {
         /* Trigger Search when the keyword lenght is 3 or bigger */
         this.formDirty = true;
@@ -30,12 +53,12 @@ var app = new Vue({
         axios
           .get("https://jsonplaceholder.typicode.com/todos")
           .then((response) => {
-            console.log(response.data);
+            // console.log(response.data);
             setTimeout(() => {
               /* Search Results */
-              this.results = response.data;
+              this.results = this.dummyResponse;
               /* Set Search suggestions */
-              this.suggestions = response.data;
+              // this.suggestions = response.data;
               /* Set Loading back to false again */
               this.loading = false;
 
@@ -47,11 +70,15 @@ var app = new Vue({
         this.formDirty = false;
       }
     },
+    /* Modify URL */
+    modifiedUrl(url) {
+      return url + "this-is-modified";
+    },
     /* Reset search and close search box */
     cancelSearchHandler() {
       this.keyword = null;
       this.searching = false;
-      this.suggestions = null;
+      // this.suggestions = null;
       this.results = null;
       this.currentItem = 0;
     },
@@ -119,6 +146,117 @@ var app = new Vue({
       contentType: "html",
       loop: true,
       backDelay: 1000,
+    });
+
+    particlesJS("particles-js", {
+      particles: {
+        number: {
+          value: 125,
+          density: {
+            enable: false,
+            value_area: 800,
+          },
+        },
+        color: {
+          value: "#000000",
+        },
+        shape: {
+          type: "circle",
+          stroke: {
+            width: 0,
+            color: "#000000",
+          },
+          polygon: {
+            nb_sides: 5,
+          },
+          image: {
+            src: "img/github.svg",
+            width: 100,
+            height: 100,
+          },
+        },
+        opacity: {
+          value: 0.5,
+          random: false,
+          anim: {
+            enable: false,
+            speed: 1,
+            opacity_min: 0.1,
+            sync: false,
+          },
+        },
+        size: {
+          value: 3,
+          random: true,
+          anim: {
+            enable: false,
+            speed: 40,
+            size_min: 0.1,
+            sync: false,
+          },
+        },
+        line_linked: {
+          enable: true,
+          distance: 150,
+          color: "#000000",
+          opacity: 0.4,
+          width: 1,
+        },
+        move: {
+          enable: true,
+          speed: 6,
+          direction: "none",
+          random: false,
+          straight: false,
+          out_mode: "out",
+          bounce: false,
+          attract: {
+            enable: false,
+            rotateX: 600,
+            rotateY: 1200,
+          },
+        },
+      },
+      interactivity: {
+        detect_on: "canvas",
+        events: {
+          onhover: {
+            enable: false,
+            mode: "repulse",
+          },
+          onclick: {
+            enable: true,
+            mode: "push",
+          },
+          resize: true,
+        },
+        modes: {
+          grab: {
+            distance: 400,
+            line_linked: {
+              opacity: 1,
+            },
+          },
+          bubble: {
+            distance: 400,
+            size: 40,
+            duration: 2,
+            opacity: 8,
+            speed: 3,
+          },
+          repulse: {
+            distance: 200,
+            duration: 0.4,
+          },
+          push: {
+            particles_nb: 4,
+          },
+          remove: {
+            particles_nb: 2,
+          },
+        },
+      },
+      retina_detect: true,
     });
   },
 });

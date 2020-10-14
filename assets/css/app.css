@@ -158,7 +158,7 @@ footer a:hover { text-decoration: underline; }
 
 .search-box .search-box-wrapper .search-body .search-loader img { width: 150px; height: 150px; }
 
-.search-box .search-box-wrapper .search-body .result-list { list-style: none; padding: 0; margin: 0; }
+.search-box .search-box-wrapper .search-body .result-list { list-style: none; padding: 0 0 30px 0; margin: 0; }
 
 .search-box .search-box-wrapper .search-body .result-list li { text-align: left; font: 300 20px/31px "Titillium Web"; letter-spacing: 0.4px; color: #000000; border-radius: 8px; padding: 10px 20px; }
 
@@ -179,6 +179,10 @@ footer a:hover { text-decoration: underline; }
 .search-box.searching .search-box-wrapper .search-top button { visibility: visible; }
 
 .search-box.searching .search-box-wrapper .search-body .placeholder { opacity: 1; -webkit-transform: translate(0, 0); transform: translate(0, 0); -webkit-transition: 0.3s all 0.3s; transition: 0.3s all 0.3s; }
+
+#particles-js { background-color: transparent; z-index: 0; position: relative; overflow: hidden; height: 100vh; }
+
+#particles-js canvas { position: absolute; top: 0; bottom: 0; z-index: 1; }
 
 @media (min-width: 1024px) and (max-width: 1919px) { /* SCSS by Mamo YZ
 https://mamoyz.com/ */
@@ -231,6 +235,7 @@ https://mamoyz.com/ */
   .search-box .search-box-wrapper .search-body .placeholder { padding-top: 3.13vw; padding-bottom: 3.13vw; -webkit-transform: translate(0, 2.6vw); transform: translate(0, 2.6vw); }
   .search-box .search-box-wrapper .search-body .placeholder p { font: 400 0.99vw/1.51vw "Titillium Web"; letter-spacing: 0.05vw; }
   .search-box .search-box-wrapper .search-body .search-loader img { width: 7.81vw; height: 7.81vw; }
+  .search-box .search-box-wrapper .search-body .result-list { padding: 0 0 2vw 0; }
   .search-box .search-box-wrapper .search-body .result-list li { font: 300 1.04vw/1.61vw "Titillium Web"; letter-spacing: 0.02vw; border-radius: 0.42vw; padding: 0.52vw 1.04vw; }
   .search-box .search-box-wrapper .search-body .suggestion-list { border-top: 0.05vw solid #d4d4d4; padding: 0.78vw 0 1.56vw 0; margin: 0.78vw 0 0 0; }
   .search-box .search-box-wrapper .search-body .suggestion-list li { font: 300 1.04vw/1.61vw "Titillium Web"; letter-spacing: 0.02vw; border-radius: 0.42vw; padding: 0.52vw 1.04vw; }

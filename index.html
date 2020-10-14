@@ -8,6 +8,7 @@
       href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@200;300;400;600&display=swap"
       rel="stylesheet"
     />
+    <link href="assets/css/particles.css" rel="stylesheet" />
     <link href="assets/css/app.css" rel="stylesheet" />
   </head>
   <body>
@@ -48,12 +49,10 @@
                   :class='{"active": currentItem === index}'
                   @mouseover="currentItem=index"
                 >
-                  <a href="#" @click.prevent="keyword=result.title">
-                    {{result.title}}
-                  </a>
+                  <a :href="modifiedUrl(result.url)">{{result.title}}</a>
                 </li>
               </ul>
-              <ul class="suggestion-list" v-if="suggestions">
+              <!-- <ul class="suggestion-list" v-if="suggestions">
                 <li
                   v-for="(suggestion,index) in suggestions.slice(0,3)"
                   :key="index"
@@ -61,7 +60,7 @@
                 >
                   <span>{{suggestion.title}}</span>
                 </li>
-              </ul>
+              </ul> -->
             </div>
           </div>
         </div>
@@ -123,7 +122,7 @@
           </svg>
         </a>
       </section>
-      <section class="main">
+      <section id="particles-js" class="main">
         <div class="container">
           <div class="col-6">
             <h2>Capture & organize your data in one place.</h2>
@@ -309,6 +308,7 @@
       integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
       crossorigin="anonymous"
     ></script>
+    <script src="assets/js/particles.js"></script>
     <script src="assets/js/app.js"></script>
   </body>
 </html>
