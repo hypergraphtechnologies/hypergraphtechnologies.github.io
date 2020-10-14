@@ -9,6 +9,12 @@ var app = new Vue({
     formDirty: false,
     searching: false,
     loading: false,
+    typedConfig: {
+      typeSpeed: 80,
+      backSpeed: 30,
+      contentType: "html",
+      backDelay: 1000,
+    },
     // suggestions: [],
     strings: [
       "is Google™ for your personal data.",
@@ -17,6 +23,9 @@ var app = new Vue({
       "weaves your data Fabric layer.",
       "your Feature Store search engine.",
     ],
+    rowOneHeading: ["Your Data is scattered &amp; not easily accessible"],
+    rowTwoHeading: ["Take knowledge to<br />the next level"],
+    rowThreeHeading: ["The HyperGraph Platform"],
     dummyResponse: [
       {
         title: "Bla bla bla 1",
@@ -127,9 +136,9 @@ var app = new Vue({
   /* Watch changes on search input  */
 
   watch: {
-    keyword: function (val, oldVal) {
+    keyword: _.debounce(function (newVal, oldVal) {
       this.searchChangeHandler();
-    },
+    }, 500),
   },
   mounted() {
     document.addEventListener("keyup", this.nextItem);
@@ -142,12 +151,33 @@ var app = new Vue({
 
     let typed = new Typed(".typed", {
       strings: this.strings,
-      typeSpeed: 50,
-      contentType: "html",
       loop: true,
-      backDelay: 1000,
+      ...this.typedConfig,
     });
+    let rowOneTyped = new Typed("#row1heading", {
+      strings: this.rowOneHeading,
+      loop: true,
+      showCursor: false,
+      backDelay: 5000,
 
+      ...this.typedConfig,
+    });
+    let rowTwoTyped = new Typed("#row2heading", {
+      strings: this.rowTwoHeading,
+      loop: true,
+      showCursor: false,
+      backDelay: 5000,
+
+      ...this.typedConfig,
+    });
+    let rowThreeTyped = new Typed("#row3heading", {
+      strings: this.rowThreeHeading,
+      loop: true,
+      showCursor: false,
+      backDelay: 5000,
+
+      ...this.typedConfig,
+    });
     particlesJS("particles-js", {
       particles: {
         number: {

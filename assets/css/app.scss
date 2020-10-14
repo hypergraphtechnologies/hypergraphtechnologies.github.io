@@ -181,6 +181,8 @@ header {
   .container {
     display: flex;
     justify-content: flex-start;
+    position: relative;
+    z-index: 5;
   }
   .col-6 {
     flex: 0 1 50%;
@@ -242,6 +244,7 @@ header {
       letter-spacing: 0;
       color: #000000;
       opacity: 1;
+      min-height: 160px;
       margin: 0;
     }
     p {
@@ -698,6 +701,7 @@ https://mamoyz.com/ */
       }
       h3 {
         font: 200 3.39vw/3.91vw "Titillium Web";
+        min-height: 8.33vw;
       }
       p {
         font: 300 1.46vw/2.08vw "Titillium Web";

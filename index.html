@@ -49,7 +49,9 @@
                   :class='{"active": currentItem === index}'
                   @mouseover="currentItem=index"
                 >
-                  <a :href="modifiedUrl(result.url)">{{result.title}}</a>
+                  <a :href="modifiedUrl(result.url)" target="_blank">
+                    {{result.title}}
+                  </a>
                 </li>
               </ul>
               <!-- <ul class="suggestion-list" v-if="suggestions">
@@ -150,7 +152,7 @@
         <div class="container">
           <div class="row row1">
             <div>
-              <h3>Your Data is scattered & not easily accessible</h3>
+              <h3 id="row1heading"></h3>
             </div>
             <div>
               <p>
@@ -169,11 +171,7 @@
           </div>
           <div class="row row2">
             <div>
-              <h3>
-                Take knowledge to
-                <br />
-                the next level
-              </h3>
+              <h3 id="row2heading"></h3>
 
               <p>Data is siloed across services in different formats.</p>
               <p>
@@ -193,7 +191,7 @@
           </div>
           <div class="row row3">
             <div>
-              <h3>The Hyperlink Platform</h3>
+              <h3 id="row3heading"></h3>
             </div>
             <div>
               <ul>
@@ -300,6 +298,7 @@
         </div>
       </footer>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.20/lodash.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios@0.20.0/dist/axios.min.js"></script>
