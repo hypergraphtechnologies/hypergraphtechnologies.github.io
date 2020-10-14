@@ -49,8 +49,8 @@
                   :class='{"active": currentItem === index}'
                   @mouseover="currentItem=index"
                 >
-                  <a :href="modifiedUrl(result.url)" target="_blank">
-                    {{result.title}}
+                  <a :href="getUrl(result)" target="_blank">
+                    {{result.identity_name}}
                   </a>
                 </li>
               </ul>

@@ -1,5 +1,9 @@
 /* JS by Mamo YZ
 https://mamoyz.com/ */
+const baseApiUrl = "http://hypergraph.eastus.cloudapp.azure.com/api";
+const baseFrontendUrl = "http://hypergraph.eastus.cloudapp.azure.com/editor/node";
+// const baseApiUrl = "http://localhost:8080/api";
+// const baseFrontendUrl = "http://localhost:3001/editor/node";
 var app = new Vue({
   el: "#app",
   data: {
@@ -51,36 +55,42 @@ var app = new Vue({
   methods: {
     /* Main function : Trigger search and show results */
     searchChangeHandler() {
-      console.log("search function triggered!");
       if (this.keyword && this.keyword.length > 2) {
         /* Trigger Search when the keyword lenght is 3 or bigger */
         this.formDirty = true;
         /* Set Loading to true */
         this.loading = true;
         /* Do AJAX Call here and put results as JSON to this.results */
-        axios
-          .get("https://jsonplaceholder.typicode.com/todos")
-          .then((response) => {
-            // console.log(response.data);
-            setTimeout(() => {
-              /* Search Results */
-              this.results = this.dummyResponse;
-              /* Set Search suggestions */
-              // this.suggestions = response.data;
-              /* Set Loading back to false again */
-              this.loading = false;
+        axios({
+          method: "post",
+          headers: { "Content-Type": "application/json" },
+          url: `${baseApiUrl}/get_public_identities`,
+          data: {
+            searchTerm: this.keyword,
+          },
+        }).then((response) => {
+          setTimeout(() => {
+            /* Search Results */
+            this.results = response.data;
+            /* Set Search suggestions */
+            // this.suggestions = response.data;
+            /* Set Loading back to false again */
+            this.loading = false;
 
-              /* Set selected item back to first one again */
-              this.currentItem = 0;
-            }, 1000);
-          });
+            /* Set selected item back to first one again */
+            this.currentItem = 0;
+          }, 1000);
+        });
       } else {
         this.formDirty = false;
       }
     },
     /* Modify URL */
-    modifiedUrl(url) {
-      return url + "this-is-modified";
+    getUrl({ id, identity_name }) {
+      if (id && identity_name) {
+        return `${baseFrontendUrl}/${id}/${this.slugify(identity_name)}`;
+      }
+      return "";
     },
     /* Reset search and close search box */
     cancelSearchHandler() {
@@ -130,6 +140,25 @@ var app = new Vue({
     },
     setCurrentItem(index) {
       this.currentItem = index;
+    },
+    /* Slugify your string. Eg: 'Sarthak Joshi**' => 'sarthak-joshi' */
+    slugify(string) {
+      const a =
+        "àáâäæãåāăąçćčđďèéêëēėęěğǵḧîïíīįìłḿñńǹňôöòóœøōõőṕŕřßśšşșťțûüùúūǘůűųẃẍÿýžźż·/_,:;";
+      const b =
+        "aaaaaaaaaacccddeeeeeeeegghiiiiiilmnnnnoooooooooprrsssssttuuuuuuuuuwxyyzzz------";
+      const p = new RegExp(a.split("").join("|"), "g");
+
+      return string
+        .toString()
+        .toLowerCase()
+        .replace(/\s+/g, "-") // Replace spaces with -
+        .replace(p, (c) => b.charAt(a.indexOf(c))) // Replace special characters
+        .replace(/&/g, "-and-") // Replace & with 'and'
+        .replace(/[^\w\-]+/g, "") // Remove all non-word characters
+        .replace(/\-\-+/g, "-") // Replace multiple - with single -
+        .replace(/^-+/, "") // Trim - from start of text
+        .replace(/-+$/, ""); // Trim - from end of text
     },
   },
   /* Watch changes on search input  */
