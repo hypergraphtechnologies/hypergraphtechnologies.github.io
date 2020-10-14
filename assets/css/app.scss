@@ -405,7 +405,11 @@ footer {
   top: 0;
   left: 210px;
   width: 600px;
-
+  display: none;
+  transition: all 0.3s;
+  max-height: 110px;
+  transform: scale(1);
+  transform-origin: top;
   .search-box-wrapper {
     padding-left: 30px;
     padding-right: 30px;
@@ -435,7 +439,6 @@ footer {
         padding-right: 30px;
         text-align: left;
         font: 300 15px/23px "Titillium Web";
-        letter-spacing: 0px;
         color: #484848;
         margin-right: 20px;
         flex: auto;
@@ -454,11 +457,13 @@ footer {
       }
     }
     .search-body {
-      display: none;
       .placeholder {
         text-align: center;
         padding-top: 60px;
         padding-bottom: 60px;
+        opacity: 0;
+        transform: translate(0, 50px);
+        transition: 0.3s all 0s;
         p {
           font: 400 19px/29px "Titillium Web";
           letter-spacing: 0.95px;
@@ -466,11 +471,65 @@ footer {
           opacity: 1;
         }
       }
+      .search-loader {
+        text-align: center;
+        img {
+          width: 150px;
+          height: 150px;
+        }
+      }
+      .result-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        li {
+          text-align: left;
+          font: 300 20px/31px "Titillium Web";
+          letter-spacing: 0.4px;
+          color: #000000;
+          border-radius: 8px;
+          padding: 10px 20px;
+          a {
+            color: inherit;
+            text-decoration: none;
+          }
+          &.active {
+            background: #bc9ce529;
+            font-weight: 600;
+          }
+        }
+      }
+      .suggestion-list {
+        border-top: 1px solid #d4d4d4;
+        list-style: none;
+        padding: 15px 0 30px 0;
+        margin: 15px 0 0 0;
+        li {
+          text-align: left;
+          font: 300 20px/31px "Titillium Web";
+          letter-spacing: 0.4px;
+          color: #a1a1a1;
+          border-radius: 8px;
+          padding: 10px 20px;
+          cursor: pointer;
+          a {
+            color: inherit;
+            text-decoration: none;
+          }
+          &.active {
+            font-weight: 600;
+          }
+        }
+      }
     }
   }
   &.searching {
     background: #fff;
-    box-shadow: 16px 21px 59px #0000001a;
+    box-shadow: 46px 101px 250px #00000059;
+    // box-shadow: 16px 21px 59px #0000001a;
+    transition: max-height 0.5s ease-in-out, transform 1s;
+    max-height: 700px;
+    transform: scale(1.1);
     .search-box-wrapper {
       .search-top {
         button {
@@ -478,12 +537,28 @@ footer {
         }
       }
       .search-body {
-        display: block;
+        .placeholder {
+          opacity: 1;
+          transform: translate(0, 0);
+          transition: 0.3s all 0.3s;
+        }
       }
     }
   }
 }
+
 @media (min-width: 1024px) and (max-width: 1919px) {
+  /* SCSS by Mamo YZ
+https://mamoyz.com/ */
+  * {
+  }
+  body {
+  }
+  ::selection {
+  }
+
+  a {
+  }
   .container {
     padding-left: 0.78vw;
     padding-right: 0.78vw;
@@ -493,6 +568,7 @@ footer {
   header {
     border-bottom: 0.05vw solid #cecece;
     height: 5.73vw;
+
     .header-wrapper {
       padding-left: 2.6vw;
       padding-right: 2.6vw;
@@ -543,22 +619,38 @@ footer {
       bottom: 1.04vw;
       span {
         margin-bottom: 0.78vw;
-        font: 600 1.04vw/1.61vw T "itillium Web";
+        font: 600 1.04vw/1.61vw "Titillium Web";
         letter-spacing: 0.22vw;
+      }
+      svg {
       }
     }
   }
 
+  @keyframes bounce {
+    0% {
+    }
+    40% {
+      transform: translate(0, -0.52vw);
+    }
+    100% {
+    }
+  }
   .btn-submit {
     padding: 1.04vw 1.56vw;
     border-radius: 0.42vw;
     font: 400 0.83vw/1.25vw "Titillium Web";
     letter-spacing: 0.08vw;
+    &:hover {
+    }
   }
 
   .main {
     padding-top: 5.73vw;
-
+    .container {
+    }
+    .col-6 {
+    }
     h2 {
       font: 600 3.91vw/4.69vw "Titillium Web";
       margin-bottom: 2.6vw;
@@ -636,6 +728,8 @@ footer {
         padding: 0 2.34vw;
         .item-img {
           height: 5.21vw;
+          img {
+          }
         }
         h3 {
           font: 300 2.08vw/3.91vw "Titillium Web";
@@ -661,14 +755,17 @@ footer {
     }
     .signup-form {
       padding: 1.56vw;
-
+      form {
+      }
       input {
         height: 3.65vw;
         border-bottom: 0.16vw solid rgba(#ffffff, 0.18);
-        font: 200 1.15vw/1.77vw "Titillium Web";
+        font: 200 1.15vw/1.77vw Titillium Web;
         letter-spacing: 0.03vw;
         min-width: 26.04vw;
         margin-bottom: 2.08vw;
+        &::placeholder {
+        }
       }
     }
   }
@@ -676,5 +773,100 @@ footer {
     padding: 2.6vw 0;
     font: 300 0.94vw/2.19vw "Titillium Web";
     letter-spacing: 0.03vw;
+    p {
+    }
+    a:hover {
+    }
+  }
+
+  .search-box {
+    border-radius: 0.52vw;
+    left: 10.94vw;
+    width: 31.25vw;
+    max-height: 5.73vw;
+    .search-box-wrapper {
+      padding-left: 1.56vw;
+      padding-right: 1.56vw;
+      .search-top {
+        height: 5.73vw;
+        &:before {
+          width: 1.15vw;
+          height: 1.15vw;
+          top: 2.34vw;
+          left: 1.04vw;
+        }
+        .keyword {
+          border-radius: 5.21vw;
+          height: 3.28vw;
+          padding-left: 3.13vw;
+          padding-right: 1.56vw;
+          font: 300 0.78vw/1.2vw "Titillium Web";
+          margin-right: 1.04vw;
+        }
+        button {
+          font: 300 0.83vw/1.25vw "Titillium Web";
+          letter-spacing: 0.04vw;
+        }
+      }
+      .search-body {
+        .placeholder {
+          padding-top: 3.13vw;
+          padding-bottom: 3.13vw;
+          transform: translate(0, 2.6vw);
+          p {
+            font: 400 0.99vw/1.51vw "Titillium Web";
+            letter-spacing: 0.05vw;
+          }
+        }
+        .search-loader {
+          img {
+            width: 7.81vw;
+            height: 7.81vw;
+          }
+        }
+        .result-list {
+          li {
+            font: 300 1.04vw/1.61vw "Titillium Web";
+            letter-spacing: 0.02vw;
+            border-radius: 0.42vw;
+            padding: 0.52vw 1.04vw;
+            a {
+            }
+            &.active {
+            }
+          }
+        }
+        .suggestion-list {
+          border-top: 0.05vw solid #d4d4d4;
+          padding: 0.78vw 0 1.56vw 0;
+          margin: 0.78vw 0 0 0;
+          li {
+            font: 300 1.04vw/1.61vw "Titillium Web";
+            letter-spacing: 0.02vw;
+            border-radius: 0.42vw;
+            padding: 0.52vw 1.04vw;
+            a {
+            }
+            &.active {
+            }
+          }
+        }
+      }
+    }
+    &.searching {
+      box-shadow: 2.4vw 5.26vw 13.02vw #00000059;
+      // box-shadow: 0.83vw 1.09vw 3.07vw #0000001a;
+      max-height: 36.46vw;
+      .search-box-wrapper {
+        .search-top {
+          button {
+          }
+        }
+        .search-body {
+          .placeholder {
+          }
+        }
+      }
+    }
   }
 }

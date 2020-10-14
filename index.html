@@ -12,7 +12,7 @@
   </head>
   <body>
     <div id="app">
-      <div class="search-box" :class="{searching:searching}">
+      <div class="search-box" :class="{searching}">
         <div class="search-box-wrapper">
           <div class="search-top">
             <input
@@ -22,14 +22,13 @@
               class="keyword"
               placeholder="Search through our knowledge base or create your own"
               autocomplete="off"
-              @focus="searchFocusHandler"
-              @click="searchFocusHandler"
-              @keyup="searchChangeHandler"
+              @focus="searching=true"
+              @click="searching=true"
               v-model="keyword"
             />
-            <button @click="searching=false">cancel</button>
+            <button @click="cancelSearchHandler">cancel</button>
           </div>
-          <div class="search-body">
+          <div class="search-body" :class="{'loaded':results && !loading}">
             <div v-show="!formDirty" class="placeholder">
               <img src="assets/img/search-grey.svg" alt="" />
               <p>
@@ -38,9 +37,30 @@
                 or Create your own
               </p>
             </div>
-            <div v-show="formDirty">
-              <ul>
-                <li v-for="result in results">{{result}}</li>
+            <div v-show="formDirty && loading" class="search-loader">
+              <img src="assets/img/loader.svg" alt="" />
+            </div>
+            <div v-show="formDirty && !loading">
+              <ul class="result-list" v-if="results">
+                <li
+                  v-for="(result,index) in results.slice(0,5)"
+                  :key="index"
+                  :class='{"active": currentItem === index}'
+                  @mouseover="currentItem=index"
+                >
+                  <a href="#" @click.prevent="keyword=result.title">
+                    {{result.title}}
+                  </a>
+                </li>
+              </ul>
+              <ul class="suggestion-list" v-if="suggestions">
+                <li
+                  v-for="(suggestion,index) in suggestions.slice(0,3)"
+                  :key="index"
+                  @click.prevent="keyword=suggestion.title"
+                >
+                  <span>{{suggestion.title}}</span>
+                </li>
               </ul>
             </div>
           </div>
@@ -283,6 +303,7 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios@0.20.0/dist/axios.min.js"></script>
     <script
       src="https://code.jquery.com/jquery-3.5.1.min.js"
       integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
