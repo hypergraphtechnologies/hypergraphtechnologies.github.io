@@ -13,7 +13,6 @@ var app = new Vue({
       typeSpeed: 80,
       backSpeed: 30,
       contentType: "html",
-      backDelay: 1000,
     },
     // suggestions: [],
     strings: [
@@ -152,6 +151,8 @@ var app = new Vue({
     let typed = new Typed(".typed", {
       strings: this.strings,
       loop: true,
+      backDelay: 1000,
+
       ...this.typedConfig,
     });
     let rowOneTyped = new Typed("#row1heading", {

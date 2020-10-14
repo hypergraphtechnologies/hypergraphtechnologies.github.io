@@ -78,7 +78,7 @@ header .header-wrapper .header-cta:hover { background: #000; color: #fff; }
 
 .about .row:last-child { margin-bottom: 0; }
 
-.about .row h3 { text-align: left; font: 200 65px/75px "Titillium Web"; letter-spacing: 0; color: #000000; opacity: 1; min-height: 160px; margin: 0; }
+.about .row h3 { text-align: left; font: 200 60px/75px "Titillium Web"; letter-spacing: 0; color: #000000; opacity: 1; min-height: 160px; margin: 0; }
 
 .about .row p { text-align: left; font: 300 28px/40px "Titillium Web"; letter-spacing: 0.84px; color: #000000; opacity: 1; margin-top: 15px; margin-bottom: 0; }
 
@@ -210,7 +210,7 @@ https://mamoyz.com/ */
   .main .signup-form input { height: 2.6vw; margin-right: 2.6vw; border-bottom: 0.16vw solid #e0d1f3; font: 200 1.15vw/1.77vw "Titillium Web"; letter-spacing: 0.03vw; }
   .about { padding-top: 9.38vw; padding-bottom: 7.81vw; }
   .about .row { margin-bottom: 5.21vw; }
-  .about .row h3 { font: 200 3.39vw/3.91vw "Titillium Web"; min-height: 8.33vw; }
+  .about .row h3 { font: 200 3.12vw/3.91vw "Titillium Web"; min-height: 8.33vw; }
   .about .row p { font: 300 1.46vw/2.08vw "Titillium Web"; letter-spacing: 0.04vw; margin-top: 0.78vw; }
   .about .row li::marker { font-size: 1.46vw; }
   .about .row.row2 > div:nth-child(2) img { -webkit-box-shadow: 0 2.45vw 2.86vw #0000002e; box-shadow: 0 2.45vw 2.86vw #0000002e; border-radius: 0.42vw; }
