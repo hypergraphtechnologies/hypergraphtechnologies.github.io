@@ -12,14 +12,77 @@
   </head>
   <body>
     <div id="app">
+      <div class="search-box" :class="{searching:searching}">
+        <div class="search-box-wrapper">
+          <div class="search-top">
+            <input
+              type="text"
+              name="keyword"
+              id="keyword"
+              class="keyword"
+              placeholder="Search through our knowledge base or create your own"
+              autocomplete="off"
+              @focus="searchFocusHandler"
+              @click="searchFocusHandler"
+              @keyup="searchChangeHandler"
+              v-model="keyword"
+            />
+            <button @click="searching=false">cancel</button>
+          </div>
+          <div class="search-body">
+            <div v-show="!formDirty" class="placeholder">
+              <img src="assets/img/search-grey.svg" alt="" />
+              <p>
+                Search through our knowledge base
+                <br />
+                or Create your own
+              </p>
+            </div>
+            <div v-show="formDirty">
+              <ul>
+                <li v-for="result in results">{{result}}</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
       <header>
-        <div class="header-wrapper"></div>
+        <div class="header-wrapper">
+          <a @click.prevent="slideToSection(0)" href="#" id="logo">
+            <img src="assets/img/logo.png" alt="HyperGraph" />
+          </a>
+          <div>
+            <ul>
+              <li>
+                <a @click.prevent="slideToSection(0)" href="#home">HOME</a>
+              </li>
+              <li>
+                <a @click.prevent="slideToSection(2)" href="#about">ABOUT</a>
+              </li>
+              <li>
+                <a @click.prevent="slideToSection(3)" href="#how-it-works">
+                  HOW IT WORKS
+                </a>
+              </li>
+            </ul>
+            <a
+              @click.prevent="slideToSection(4)"
+              href="#create-an-account"
+              class="header-cta"
+            >
+              CREATE AN ACCOUNT
+            </a>
+          </div>
+        </div>
       </header>
       <section class="intro" @wheel="slideWheelHandler">
         <div class="container">
           <h1>HyperGraph</h1>
           <div class="tw">
-            <p># <span class="typed"></span></p>
+            <p>
+              #
+              <span class="typed"></span>
+            </p>
           </div>
         </div>
         <a @click.prevent="slideClickHandler" href="#" id="scroll">
@@ -87,7 +150,11 @@
           </div>
           <div class="row row2">
             <div>
-              <h3>Take knowledge to<br />the next level</h3>
+              <h3>
+                Take knowledge to
+                <br />
+                the next level
+              </h3>
 
               <p>Data is siloed across services in different formats.</p>
               <p>
@@ -181,12 +248,13 @@
           </div>
         </div>
       </section>
-      <section class="signup">
+      <section class="signup" id="create-an-account">
         <div class="container">
           <h2>Access your knowledge today</h2>
           <h3>
-            Use Hypergraph to capture & search your knowledge.<br />Sign up for
-            a free demo account below
+            Use Hypergraph to capture & search your knowledge.
+            <br />
+            Sign up for a free demo account below
           </h3>
           <div class="signup-form">
             <form>
@@ -207,7 +275,9 @@
         <div class="container">
           <p>Hypergraph Technologies Pty Ltd 2020 All Rights Reserved</p>
           <p>4/23 O'Connell St, Sydney NSW 2000</p>
-          <a href="#"> Terms & Conditions</a> | <a href="#">Privacy Policy</a>
+          <a href="#">Terms & Conditions</a>
+          |
+          <a href="#">Privacy Policy</a>
         </div>
       </footer>
     </div>

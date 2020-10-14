@@ -3,6 +3,10 @@ https://mamoyz.com/ */
 var app = new Vue({
   el: "#app",
   data: {
+    keyword: null,
+    results: null,
+    formDirty: false,
+    searching: false,
     strings: [
       "is Google™ for your personal data.",
       "is your Enterprise Knowledge Management Tool",
@@ -12,6 +16,30 @@ var app = new Vue({
     ],
   },
   methods: {
+    searchFocusHandler() {
+      this.searching = true;
+    },
+    searchChangeHandler() {
+      this.keyword.length > 2 ? (this.formDirty = true) : "";
+      /* Do AJAX Call here and put results as JSON to this.results */
+      this.results = [
+        "Lorem ipsum dolor sit amet consectetur",
+        "adipisicing elit. Quia",
+        "aperiam magni deseruntat quasi",
+        "animi veritatis fugit",
+        "ducimus eos fuga molestiae",
+        "Lorem ipsum dolor sit amet consectetur",
+        "adipisicing elit. Quia",
+        "aperiam magni deseruntat quasi",
+        "animi veritatis fugit",
+        "ducimus eos fuga molestiae",
+        "Lorem ipsum dolor sit amet consectetur",
+        "adipisicing elit. Quia",
+        "aperiam magni deseruntat quasi",
+        "animi veritatis fugit",
+        "ducimus eos fuga molestiae",
+      ];
+    },
     submitSignUp() {
       // handle signup
     },
@@ -43,6 +71,7 @@ var app = new Vue({
         ? $("header").fadeIn(300)
         : $("header").fadeOut(300);
     });
+
     let typed = new Typed(".typed", {
       strings: this.strings,
       typeSpeed: 50,
