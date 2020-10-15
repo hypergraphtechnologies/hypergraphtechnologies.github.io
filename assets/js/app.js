@@ -180,7 +180,7 @@ var app = new Vue({
     setInterval(() => {
       $(".logo-slider-wrapper").append(content);
       $(".logo-slider-wrapper div:lt(" + count + ")").remove();
-    }, 15000);
+    }, 5000);
     $(window).scroll(function () {
       if ($(window).innerWidth() > 1023) {
         $(window).scrollTop() > $(".main").offset().top - 20
