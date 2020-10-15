@@ -28,6 +28,8 @@ header .header-wrapper #logo { -webkit-box-flex: 0; -ms-flex: 0 1 160px; flex: 0
 
 header .header-wrapper #logo img { width: 100%; display: block; }
 
+@media (min-width: 1024px) { header .header-wrapper .mobile-menu { display: none; } }
+
 header .header-wrapper ul { list-style: none; margin: 0; padding: 0; display: -webkit-inline-box; display: -ms-inline-flexbox; display: inline-flex; -webkit-box-pack: end; -ms-flex-pack: end; justify-content: flex-end; -webkit-box-align: center; -ms-flex-align: center; align-items: center; }
 
 header .header-wrapper ul li a { font: 300 16px/24px "Titillium Web"; letter-spacing: 3.36px; color: #000000; text-transform: uppercase; padding: 0 15px; }

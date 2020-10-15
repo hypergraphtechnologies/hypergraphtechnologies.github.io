@@ -84,6 +84,11 @@ header {
         display: block;
       }
     }
+    .mobile-menu {
+      @media (min-width: 1024px) {
+        display: none;
+      }
+    }
     ul {
       list-style: none;
       margin: 0;
