@@ -1,7 +1,8 @@
 /* JS by Mamo YZ
 https://mamoyz.com/ */
 const baseApiUrl = "http://hypergraph.eastus.cloudapp.azure.com/api";
-const baseFrontendUrl = "http://hypergraph.eastus.cloudapp.azure.com/editor/node";
+const baseFrontendUrl =
+  "http://hypergraph.eastus.cloudapp.azure.com/editor/node";
 // const baseApiUrl = "http://localhost:8080/api";
 // const baseFrontendUrl = "http://localhost:3001/editor/node";
 var app = new Vue({
@@ -26,9 +27,6 @@ var app = new Vue({
       "weaves your data Fabric layer.",
       "your Feature Store search engine.",
     ],
-    rowOneHeading: ["Your Data is scattered &amp; not easily accessible"],
-    rowTwoHeading: ["Take knowledge to<br />the next level"],
-    rowThreeHeading: ["The HyperGraph Platform"],
     dummyResponse: [
       {
         title: "Bla bla bla 1",
@@ -170,11 +168,25 @@ var app = new Vue({
   },
   mounted() {
     document.addEventListener("keyup", this.nextItem);
-
+    let content = $(".logo-slider-wrapper").html();
+    let count = $(".logo-slider-wrapper div").length;
+    let translate = 500;
+    setInterval(() => {
+      $(".logo-slider-wrapper").css({
+        transform: "translate(" + translate * -1 + "px,0)",
+      });
+      translate += 500;
+    }, 3000);
+    setInterval(() => {
+      $(".logo-slider-wrapper").append(content);
+      $(".logo-slider-wrapper div:lt(" + count + ")").remove();
+    }, 15000);
     $(window).scroll(function () {
-      $(window).scrollTop() > $(".main").offset().top - 20
-        ? $("header, .search-box").fadeIn(300)
-        : $("header, .search-box").fadeOut(300);
+      if ($(window).innerWidth() > 1023) {
+        $(window).scrollTop() > $(".main").offset().top - 20
+          ? $("header, .search-box").fadeIn(300)
+          : $("header, .search-box").fadeOut(300);
+      }
     });
 
     let typed = new Typed(".typed", {
@@ -184,30 +196,7 @@ var app = new Vue({
 
       ...this.typedConfig,
     });
-    let rowOneTyped = new Typed("#row1heading", {
-      strings: this.rowOneHeading,
-      loop: true,
-      showCursor: false,
-      backDelay: 5000,
 
-      ...this.typedConfig,
-    });
-    let rowTwoTyped = new Typed("#row2heading", {
-      strings: this.rowTwoHeading,
-      loop: true,
-      showCursor: false,
-      backDelay: 5000,
-
-      ...this.typedConfig,
-    });
-    let rowThreeTyped = new Typed("#row3heading", {
-      strings: this.rowThreeHeading,
-      loop: true,
-      showCursor: false,
-      backDelay: 5000,
-
-      ...this.typedConfig,
-    });
     particlesJS("particles-js", {
       particles: {
         number: {

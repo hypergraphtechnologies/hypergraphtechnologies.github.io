@@ -1,6 +1,18 @@
 /* SCSS by Mamo YZ
 https://mamoyz.com/ */
 $purp: #e0d1f3;
+@mixin down-md {
+  @media (max-width: 1023px) {
+    @content;
+  }
+}
+
+@mixin down-sm {
+  @media (max-width: 767px) {
+    @content;
+  }
+}
+
 * {
   box-sizing: border-box;
 }
@@ -24,6 +36,14 @@ a {
   max-width: 1600px;
   width: 100%;
   margin: auto;
+  @include down-md() {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+  @include down-sm() {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 }
 
 header {
@@ -37,6 +57,13 @@ header {
   z-index: 100;
 
   display: none;
+  @include down-md() {
+    display: block;
+    height: auto;
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+
   .header-wrapper {
     display: flex;
     align-items: center;
@@ -46,10 +73,15 @@ header {
     height: 100%;
     padding-left: 50px;
     padding-right: 50px;
+    @include down-sm() {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
     #logo {
       flex: 0 1 160px;
       img {
         width: 100%;
+        display: block;
       }
     }
     ul {
@@ -59,6 +91,7 @@ header {
       display: inline-flex;
       justify-content: flex-end;
       align-items: center;
+
       li {
         a {
           font: 300 16px/24px "Titillium Web";
@@ -66,9 +99,20 @@ header {
           color: #000000;
           text-transform: uppercase;
           padding: 0 15px;
+          img {
+            width: 20px;
+            vertical-align: bottom;
+          }
+          &#login {
+            color: #bc9ce5;
+            font-weight: 600;
+          }
         }
         &:after {
           content: "|";
+          @include down-md() {
+            display: none;
+          }
         }
         &:last-child {
           &::after {
@@ -109,6 +153,9 @@ header {
     color: #000;
     margin-bottom: 10px;
     margin-top: 0;
+    @include down-sm() {
+      font: 600 40px/60px "Titillium Web";
+    }
   }
   .tw {
     p {
@@ -117,6 +164,9 @@ header {
       font: 300 30px/46px "Titillium Web";
       letter-spacing: 1.8px;
       color: #919191;
+      @include down-sm() {
+        font: 300 22px/36px "Titillium Web";
+      }
     }
   }
   #scroll {
@@ -133,6 +183,10 @@ header {
       font: 600 20px/31px "Titillium Web";
       letter-spacing: 4.2px;
       color: #bc9ce5;
+      @include down-sm() {
+        font: 600 16px/28px "Titillium Web";
+        letter-spacing: 2px;
+      }
     }
     svg {
       animation: 2s bounce 2s infinite forwards;
@@ -178,14 +232,27 @@ header {
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  @include down-md() {
+    justify-content: center;
+  }
+  @include down-sm() {
+    height: auto;
+    padding-top: 50px;
+  }
   .container {
     display: flex;
     justify-content: flex-start;
     position: relative;
     z-index: 5;
+    @include down-md() {
+      justify-content: center;
+    }
   }
   .col-6 {
     flex: 0 1 50%;
+    @include down-md() {
+      flex: auto;
+    }
   }
   h2 {
     text-align: left;
@@ -193,6 +260,14 @@ header {
     color: #000000;
     margin-top: 0;
     margin-bottom: 50px;
+    @include down-md() {
+      font: 600 60px/75px "Titillium Web";
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    @include down-sm() {
+      font: 600 32px/48px "Titillium Web";
+    }
   }
   h3 {
     text-align: left;
@@ -200,6 +275,13 @@ header {
     letter-spacing: 0.75px;
     margin-top: 0;
     margin-bottom: 75px;
+    @include down-md() {
+      margin-bottom: 40px;
+      text-align: center;
+    }
+    @include down-sm() {
+      font: 300 20px/35px "Titillium Web";
+    }
   }
   .signup-form {
     background: #ffffff;
@@ -210,6 +292,10 @@ header {
     form {
       display: flex;
       align-items: flex-end;
+      @include down-md() {
+        flex-direction: column;
+        align-items: stretch;
+      }
     }
     input {
       height: 50px;
@@ -222,6 +308,11 @@ header {
       font: 200 22px/34px "Titillium Web";
       letter-spacing: 0.66px;
       color: #000;
+      @include down-md() {
+        margin-right: 0;
+        text-align: center;
+        margin-bottom: 30px;
+      }
     }
   }
 }
@@ -230,22 +321,34 @@ header {
   padding-top: 180px;
   padding-bottom: 150px;
   background: #f5f5f5;
+  @include down-md() {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
   .row {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 100px;
+    @include down-md() {
+      flex-direction: column;
+      margin-bottom: 30px;
+      align-items: flex-start;
+    }
     &:last-child {
       margin-bottom: 0;
     }
     h3 {
       text-align: left;
-      font: 200 60px/75px "Titillium Web";
+      font: 600 60px/75px "Titillium Web";
       letter-spacing: 0;
       color: #000000;
       opacity: 1;
-      min-height: 160px;
+
       margin: 0;
+      @include down-sm() {
+        font: 600 32px/48px "Titillium Web";
+      }
     }
     p {
       text-align: left;
@@ -255,6 +358,9 @@ header {
       opacity: 1;
       margin-top: 15px;
       margin-bottom: 0;
+      @include down-sm() {
+        font: 300 20px/36px "Titillium Web";
+      }
     }
     li {
       &::marker {
@@ -264,13 +370,22 @@ header {
     > div {
       &:nth-child(1) {
         flex: 0 1 42%;
+        @include down-md() {
+          flex: auto;
+        }
       }
       &:nth-child(2) {
         flex: 0 1 50%;
+        @include down-md() {
+          flex: auto;
+        }
       }
     }
     &.row2 {
       flex-direction: row-reverse;
+      @include down-md() {
+        flex-direction: column-reverse;
+      }
       > div {
         &:nth-child(1) {
           flex: 0 1 46%;
@@ -281,6 +396,9 @@ header {
             display: block;
             box-shadow: 0 47px 55px #0000002e;
             border-radius: 8px;
+            @include down-md() {
+              margin-bottom: 50px;
+            }
           }
         }
       }
@@ -293,11 +411,61 @@ header {
   letter-spacing: 0;
   opacity: 1;
   margin-top: 0;
+  @include down-md() {
+    font: 600 55px/70px "Titillium Web";
+  }
+  @include down-sm() {
+    font: 600 34px/48px "Titillium Web";
+  }
 }
+.partners {
+  padding-top: 100px;
+  padding-bottom: 100px;
+  text-align: center;
+  border-bottom: 1px solid #ccc;
+  h2 {
+    color: #000000;
+    font: 600 38px/55px "Titillium Web";
+    max-width: 70%;
+    margin: 0 auto 80px;
+    @include down-md() {
+      max-width: 100%;
+      margin: 0 auto 50px;
+    }
+    @include down-sm() {
+      font: 600 24px/36px "Titillium Web";
+    }
+  }
+  .logos-slider {
+    overflow: hidden;
+    .logo-slider-wrapper {
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: center;
+      justify-content: flex-start;
+      transition: all 3s linear;
+      .logo-item {
+        flex: auto;
+        margin-right: 50px;
+        min-width: 200px;
+        text-align: center;
+        img {
+          width: auto;
+          max-height: 100px;
+        }
+      }
+    }
+  }
+}
+
 .how-it-works {
   display: flex;
   align-items: center;
   height: 100vh;
+  @include down-md() {
+    height: auto;
+    padding-top: 80px;
+  }
   h2 {
     color: #000000;
     margin-bottom: 100px;
@@ -306,10 +474,20 @@ header {
   .items-container {
     display: flex;
     justify-content: flex-start;
+    @include down-md() {
+      flex-direction: column;
+    }
     .item {
       flex: 0 1 33.33%;
       padding: 0 45px;
       text-align: center;
+      @include down-md() {
+        flex: auto;
+        margin-bottom: 50px;
+      }
+      @include down-sm() {
+        padding: 0 0;
+      }
       .item-img {
         height: 100px;
         img {
@@ -325,6 +503,9 @@ header {
         opacity: 0.7;
         margin-top: 20px;
         margin-bottom: 0;
+        @include down-sm() {
+          font: 300 34px/48px "Titillium Web";
+        }
       }
       p {
         text-align: center;
@@ -332,6 +513,9 @@ header {
         letter-spacing: 0;
         color: #000000;
         opacity: 0.7;
+        @include down-sm() {
+          font: 300 20px/36px "Titillium Web";
+        }
       }
     }
   }
@@ -355,6 +539,9 @@ header {
     opacity: 1;
     margin-top: 0;
     margin-bottom: 20px;
+    @include down-sm() {
+      font: 300 18px/30px "Titillium Web";
+    }
   }
   .signup-form {
     opacity: 1;
@@ -379,6 +566,9 @@ header {
       min-width: 500px;
       text-align: center;
       margin-bottom: 40px;
+      @include down-sm() {
+        min-width: 100%;
+      }
       &::placeholder {
         color: #fff;
       }
@@ -416,6 +606,10 @@ footer {
   .search-box-wrapper {
     padding-left: 30px;
     padding-right: 30px;
+    @include down-md() {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
     .search-top {
       height: 110px;
       display: flex;
@@ -495,6 +689,9 @@ footer {
           a {
             color: inherit;
             text-decoration: none;
+            img {
+              width: 1.04vw;
+            }
           }
           &.active {
             background: #bc9ce529;
@@ -533,6 +730,17 @@ footer {
     transition: max-height 0.5s ease-in-out, transform 1s;
     max-height: 700px;
     transform: scale(1.1);
+    @include down-md() {
+      display: block;
+      transform: scale(1);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      width: 100vw;
+      height: 100vh;
+      max-height: 100vh;
+    }
     .search-box-wrapper {
       .search-top {
         button {
@@ -560,9 +768,16 @@ footer {
     top: 0;
     bottom: 0;
     z-index: 1;
+    @include down-md() {
+      opacity: 0.5;
+    }
   }
 }
-
+.hidden-xs {
+  @include down-md() {
+    display: none !important;
+  }
+}
 @media (min-width: 1024px) and (max-width: 1919px) {
   /* SCSS by Mamo YZ
 https://mamoyz.com/ */
@@ -700,8 +915,7 @@ https://mamoyz.com/ */
       &:last-child {
       }
       h3 {
-        font: 200 3.12vw/3.91vw "Titillium Web";
-        min-height: 8.33vw;
+        font: 600 3.12vw/3.91vw "Titillium Web";
       }
       p {
         font: 300 1.46vw/2.08vw "Titillium Web";
@@ -735,6 +949,26 @@ https://mamoyz.com/ */
   }
   .sec-title {
     font: 600 3.91vw/4.69vw "Titillium Web";
+  }
+  .partners {
+    padding-top: 5.21vw;
+    padding-bottom: 5.21vw;
+    border-bottom: 0.05vw solid #ccc;
+    h2 {
+      font: 600 1.98vw/2.86vw "Titillium Web";
+      margin: 0 auto 4.17vw;
+    }
+    .logos-slider {
+      .logo-slider-wrapper {
+        .logo-item {
+          margin-right: 2.6vw;
+          min-width: 10.42vw;
+          img {
+            max-height: 5.21vw;
+          }
+        }
+      }
+    }
   }
   .how-it-works {
     h2 {
