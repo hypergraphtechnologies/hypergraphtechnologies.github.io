@@ -329,7 +329,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 100px;
+    margin-bottom: 150px;
     @include down-md() {
       flex-direction: column;
       margin-bottom: 30px;
@@ -911,7 +911,7 @@ https://mamoyz.com/ */
     padding-top: 9.38vw;
     padding-bottom: 7.81vw;
     .row {
-      margin-bottom: 5.21vw;
+      margin-bottom: 10.4vw;
       &:last-child {
       }
       h3 {
