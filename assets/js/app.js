@@ -168,19 +168,6 @@ var app = new Vue({
   },
   mounted() {
     document.addEventListener("keyup", this.nextItem);
-    let content = $(".logo-slider-wrapper").html();
-    let count = $(".logo-slider-wrapper div").length;
-    let translate = 500;
-    setInterval(() => {
-      $(".logo-slider-wrapper").css({
-        transform: "translate(" + translate * -1 + "px,0)",
-      });
-      translate += 500;
-    }, 3000);
-    setInterval(() => {
-      $(".logo-slider-wrapper").append(content);
-      $(".logo-slider-wrapper div:lt(" + count + ")").remove();
-    }, 5000);
     $(window).scroll(function () {
       if ($(window).innerWidth() > 1023) {
         $(window).scrollTop() > $(".main").offset().top - 20

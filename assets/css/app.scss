@@ -443,26 +443,39 @@ header {
   }
   .logos-slider {
     overflow: hidden;
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
     .logo-slider-wrapper {
       display: flex;
       flex-wrap: nowrap;
       align-items: center;
       justify-content: flex-start;
-      transition: all 3s linear;
+      float: left;
+      position: relative;
+      &:first-child {
+        animation: 25s slider infinite linear;
+      }
       .logo-item {
         flex: auto;
         margin-right: 50px;
-        min-width: 200px;
+        width: 200px;
         text-align: center;
         img {
           width: auto;
           max-height: 100px;
+          max-width: 100%;
         }
       }
     }
   }
 }
 
+@keyframes slider {
+  to {
+    margin-left: -3500px;
+  }
+}
 .how-it-works {
   display: flex;
   align-items: center;
