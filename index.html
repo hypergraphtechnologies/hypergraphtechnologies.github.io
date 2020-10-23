@@ -47,7 +47,7 @@
   </head>
   <body>
     <div id="app">
-      <div class="search-box" :class="{searching}">
+      <div class="search-box header-search-box" :class="{searching}">
         <div class="search-box-wrapper">
           <div class="search-top">
             <input
@@ -158,6 +158,62 @@
               #
               <span class="typed"></span>
             </p>
+          </div>
+          <div class="search-box inline-search-box" :class="{searching}">
+            <div class="search-box-wrapper">
+              <div class="search-top">
+                <input
+                  type="text"
+                  name="keyword"
+                  id="keyword"
+                  class="keyword"
+                  placeholder="Search through our knowledge base or create your own"
+                  autocomplete="off"
+                  @focus="searching=true"
+                  @click="searching=true"
+                  v-model="keyword"
+                />
+                <button v-if="searching" @click="cancelSearchHandler">
+                  cancel
+                </button>
+              </div>
+              <div class="search-body" :class="{'loaded':results && !loading}">
+                <div v-show="!formDirty" class="placeholder">
+                  <img src="assets/img/search-grey.svg" alt="" />
+                  <p>
+                    Search through our knowledge base
+                    <br />
+                    or Create your own
+                  </p>
+                </div>
+                <div v-show="formDirty && loading" class="search-loader">
+                  <img src="assets/img/loader.svg" alt="" />
+                </div>
+                <div v-show="formDirty && !loading">
+                  <ul class="result-list" v-if="results">
+                    <li
+                      v-for="(result,index) in results.slice(0,5)"
+                      :key="index"
+                      :class='{"active": currentItem === index}'
+                      @mouseover="currentItem=index"
+                    >
+                      <a :href="getUrl(result)" target="_blank">
+                        {{result.identity_name}}
+                      </a>
+                    </li>
+                  </ul>
+                  <!-- <ul class="suggestion-list" v-if="suggestions">
+                <li
+                  v-for="(suggestion,index) in suggestions.slice(0,3)"
+                  :key="index"
+                  @click.prevent="keyword=suggestion.title"
+                >
+                  <span>{{suggestion.title}}</span>
+                </li>
+              </ul> -->
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <a @click.prevent="slideClickHandler" href="#" id="scroll">

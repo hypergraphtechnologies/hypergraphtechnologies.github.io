@@ -171,8 +171,8 @@ var app = new Vue({
     $(window).scroll(function () {
       if ($(window).innerWidth() > 1023) {
         $(window).scrollTop() > $(".main").offset().top - 20
-          ? $("header, .search-box").fadeIn(300)
-          : $("header, .search-box").fadeOut(300);
+          ? $("header, .header-search-box").fadeIn(300)
+          : $("header, .header-search-box").fadeOut(300);
       }
     });
 
