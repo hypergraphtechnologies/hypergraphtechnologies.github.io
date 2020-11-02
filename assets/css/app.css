@@ -50,6 +50,10 @@ header .header-wrapper .header-cta:hover { background: #000; color: #fff; }
 
 .intro { height: 100vh; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; text-align: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; background: #f8f8f8; position: relative; }
 
+.intro .intro-login-btn { position: absolute; top: 20px; right: 20px; color: #bc9ce5; font: 600 16px/24px "Titillium Web"; letter-spacing: 3.36px; text-transform: uppercase; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-align: center; -ms-flex-align: center; align-items: center; }
+
+.intro .intro-login-btn img { margin-right: 10px; width: 20px; }
+
 .intro h1 { text-align: center; font: 600 70px/106px "Titillium Web"; color: #000; margin-bottom: 10px; margin-top: 0; }
 
 @media (max-width: 767px) { .intro h1 { font: 600 40px/60px "Titillium Web"; } }
@@ -240,9 +244,13 @@ footer a:hover { text-decoration: underline; }
 
 .search-box { border-radius: 10px; z-index: 110; top: 0; left: 210px; width: 600px; -webkit-transition: all 0.3s; transition: all 0.3s; max-height: 110px; -webkit-transform: scale(1); transform: scale(1); -webkit-transform-origin: top; transform-origin: top; }
 
+@media (max-width: 767px) { .search-box { width: 100%; } }
+
 .search-box.header-search-box { position: fixed; display: none; }
 
 .search-box.inline-search-box { margin: 30px auto 0; }
+
+@media (max-width: 767px) { .search-box.inline-search-box { margin: 0 auto; } }
 
 .search-box .search-box-wrapper { padding-left: 30px; padding-right: 30px; }
 
@@ -253,6 +261,8 @@ footer a:hover { text-decoration: underline; }
 .search-box .search-box-wrapper .search-top:before { content: " "; width: 22px; height: 22px; background: url("../img/search-purp.svg") no-repeat; background-size: cover; position: absolute; top: 45px; left: 20px; }
 
 .search-box .search-box-wrapper .search-top .keyword { background: #f2f2f2; border-radius: 100px; height: 63px; border: none; outline: 0; padding-left: 60px; padding-right: 30px; text-align: left; font: 300 15px/23px "Titillium Web"; color: #484848; margin-right: 20px; -webkit-box-flex: 1; -ms-flex: auto; flex: auto; }
+
+@media (max-width: 767px) { .search-box .search-box-wrapper .search-top .keyword { margin-right: 0; } }
 
 .search-box .search-box-wrapper .search-top button { -webkit-appearance: none; border: none; background: transparent; outline: 0; font: 300 16px/24px "Titillium Web"; letter-spacing: 0.8px; color: #bc9ce5; cursor: pointer; text-transform: uppercase; visibility: hidden; }
 
@@ -310,6 +320,8 @@ https://mamoyz.com/ */
   header .header-wrapper #logo { -webkit-box-flex: 0; -ms-flex: 0 1 8.33vw; flex: 0 1 8.33vw; }
   header .header-wrapper ul li a { font: 300 0.83vw/1.25vw "Titillium Web"; letter-spacing: 0.18vw; padding: 0 0.78vw; }
   header .header-wrapper .header-cta { border: 0.1vw solid #000000; border-radius: 0.52vw; padding: 0.78vw 1.82vw; font: 600 0.83vw/1.25vw "Titillium Web"; letter-spacing: 0.08vw; margin-left: 1.04vw; }
+  .intro .intro-login-btn { top: 1.04vw; right: 1.04vw; font: 600 0.83vw/1.25vw "Titillium Web"; letter-spacing: 0.18vw; }
+  .intro .intro-login-btn img { margin-right: 0.52vw; width: 1.04vw; }
   .intro h1 { font: 600 3.65vw/5.52vw "Titillium Web"; margin-bottom: 0.52vw; }
   .intro .tw p { font: 300 1.56vw/2.4vw "Titillium Web"; letter-spacing: 0.09vw; }
   .intro #scroll { bottom: 1.04vw; }

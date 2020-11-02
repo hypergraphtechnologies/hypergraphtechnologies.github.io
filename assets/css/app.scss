@@ -152,6 +152,21 @@ header {
   align-items: center;
   background: #f8f8f8;
   position: relative;
+  .intro-login-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: #bc9ce5;
+    font: 600 16px/24px "Titillium Web";
+    letter-spacing: 3.36px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    img {
+      margin-right: 10px;
+      width: 20px;
+    }
+  }
   h1 {
     text-align: center;
     font: 600 70px/106px "Titillium Web";
@@ -619,12 +634,18 @@ footer {
   max-height: 110px;
   transform: scale(1);
   transform-origin: top;
+  @include down-sm() {
+    width: 100%;
+  }
   &.header-search-box {
     position: fixed;
     display: none;
   }
   &.inline-search-box {
     margin: 30px auto 0;
+    @include down-sm {
+      margin: 0 auto;
+    }
   }
   .search-box-wrapper {
     padding-left: 30px;
@@ -662,6 +683,9 @@ footer {
         color: #484848;
         margin-right: 20px;
         flex: auto;
+        @include down-sm() {
+          margin-right: 0;
+        }
       }
       button {
         -webkit-appearance: none;
@@ -865,6 +889,16 @@ https://mamoyz.com/ */
     }
   }
   .intro {
+    .intro-login-btn {
+      top: 1.04vw;
+      right: 1.04vw;
+      font: 600 0.83vw/1.25vw "Titillium Web";
+      letter-spacing: 0.18vw;
+      img {
+        margin-right: 0.52vw;
+        width: 1.04vw;
+      }
+    }
     h1 {
       font: 600 3.65vw/5.52vw "Titillium Web";
       margin-bottom: 0.52vw;
