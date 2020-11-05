@@ -1,8 +1,8 @@
 /* JS by Mamo YZ
 https://mamoyz.com/ */
-const baseApiUrl = "http://main.hypergraph.so/api";
+const baseApiUrl = "https://main.hypergraph.so/api";
 const baseFrontendUrl =
-  "http://main.hypergraph.so/editor/node";
+  "https://main.hypergraph.so/editor/node";
 // const baseApiUrl = "http://localhost:8080/api";
 // const baseFrontendUrl = "http://localhost:3001/editor/node";
 var app = new Vue({
